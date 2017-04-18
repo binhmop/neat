@@ -1,0 +1,10 @@
+<map>
+  <world type="roadnet">
+  <file name="configs/maps/sanjose.svg">
+    <class name="CLASS_1" v_max="70 mph"/>
+    <class name="CLASS_2" v_max="55 mph"/>
+    <class name="CLASS_3" v_max="30 mph"/>
+    <class name="INTERCHANGE" v_max="30 mph"/>
+  </file>
+  </world>
+</map>

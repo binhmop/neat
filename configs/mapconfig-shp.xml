@@ -1,0 +1,5 @@
+<map>
+  <world type="roadnet">
+  <file name="configs/maps/miami-dade/tl_2010_12086_edges.shp"/>
+  </world>
+</map>
