@@ -1,0 +1,107 @@
+body { 
+font-family: Arial, sans-serif; 
+line-height: 1.4;
+font-size: 13px;
+background: #f9f7ed;
+margin: 0;
+padding: 0;
+color: #112211;
+}
+
+a { color: #2980DF; text-decoration: none;}
+a:hover { text-decoration: underline; }
+
+#wrap { 
+width: 800px;
+margin: 0 auto;
+}
+
+#header {
+background: url(images/header.png) no-repeat;
+height: 100px;
+}
+#header h1 {
+font-family: Arial, sans-serif; 
+margin: 0;
+padding: 7px 0 0 30px;
+font-weight: 600;
+color: #fff;
+font-size: 24px;
+letter-spacing: -2px;
+line-height: 27px;
+}
+#header h1 a { text-decoration: none; color: #fff; }
+#header h1 a:hover { text-decoration: none; border-bottom: 1px solid #fff; color: #fff; }
+#header h2 { font-size: 14px; padding: 0 0 0 30px; margin: 0; color: #111; font-weight: 100; }
+
+.ad { padding: 3px 55px 0 0; float: right; }
+.heading { float: left; }
+
+#contentwrap {
+background: url(images/content.jpg) repeat-y;
+padding: 0 40px 0 20px;
+}
+
+#content {
+float: right;
+width: 470px;
+margin: 15px 0;
+padding: 20px;
+background: #fff;
+border-left: 1px solid #ddd;
+border-right: 1px solid #ddd;
+border-bottom: 1px solid #ddd;
+border-top: 5px solid #4090E7;
+}
+#content h2 {
+margin: 0;
+color: #2980DF;
+line-height: 30px;
+font-weight: 100;
+}
+
+#content p { padding: 0 0 10px 0; color: #232323;}
+#content ul { padding: 0 20px 10px 30px; }
+
+#sidebar {
+float: left;
+margin: 15px 0 0 0;
+width: 210px;
+}
+
+#sidebar h3 {
+background: url(images/sidebarh3.jpg) no-repeat;
+height: 30px;
+line-height: 30px;
+font-weight: 600;
+margin: 0; padding: 0 0 0 10px; 
+color: #fff;
+font-size: 12px;
+}
+
+#sidebar p { padding: 0 10px 10px 10px; color: #232323; }
+
+#sidebar ul {
+padding: 5px 0 10px 15px;
+margin: 0;
+color: #aaa;
+list-style-type: none;
+}
+
+#sidebar ul li {
+background: url(images/bullet.png) no-repeat center left;
+padding: 2px 0 2px 22px;
+margin: 0;
+}
+#sidebar ul li a {  }
+
+#bottom { background: url(images/bottom.jpg) no-repeat; padding: 15px 0; }
+#footer { 
+text-align: center;
+color: #979797;
+padding: 0 0 10px 0;
+}
+
+#footer p { padding: 0; margin: 0; }
+#footer a { color: #979797; }
+#footer a:hover { text-decoration: underline; }

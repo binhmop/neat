@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>Road Network Aware Trajectory Clustering</title>
+<SCRIPT TYPE="text/javascript">
+	<!--
+	function show_map(mySel){
+	var mapinfo="<table border='1'><tr><th>Regions</th><th>Total length</th><th># Segments</th><th># Junctions</th><th>Avg. segment length</th><th>Junction degrees</th></tr><tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr></table>";
+	var atlinfo="<table border='1'><tr><th>Regions</th><th>Total length</th><th># Segments</th><th># Junctions</th><th>Avg. segment length</th><th>Junction degrees</th></tr><tr><td>North West Atlanta, GA</td><td>1384.4 km</td><td>9187</td><td>6979</td><td>150.7 m</td><td>avg: 2.6, max: 6</td></tr></table>";
+	var sjinfo="<table border='1'><tr><th>Regions</th><th>Total length</th><th># Segments</th><th># Junctions</th><th>Avg. segment length</th><th>Junction degrees</th></tr><tr><td>West San Jose, CA</td><td>1821.2 km</td><td>14600</td><td>10929</td><td>124.7 m</td><td>avg: 2.7, max: 6</td></tr></table>";
+	var miainfo="<table border='1'><tr><th>Regions</th><th>Total length</th><th># Segments</th><th># Junctions</th><th>Avg. segment length</th><th>Junction degrees</th></tr><tr><td>Miami-Dade, FL</td><td>26148.3 km</td><td>154681</td><td>103377</td><td>169.0 m</td><td>avg: 3.0, max: 9</td></tr></table>";
+	
+	var atldata="<table><tr><td>Number of trajectories: 500</br>Number of points: 114,878</td></tr><tr><td><img src='images/atl500.jpg' width='390'/></td></tr></table>";
+	var sjdata="<table><tr><td>Number of trajectories: 1000</br>Number of points: 255,162</td></tr><tr><td><img src='images/sj1000.png' width='390'/></td></tr></table>";
+	var miadata="<table><tr><td>Number of trajectories: 2000</br>Number of points: 893,412</td></tr><tr><td><img src='images/mia2000.png' width='390'/></td></tr></table>";
+	var datainfo="<table><tr><td><img src='images/atl500.jpg' width='140'/></td><td><img src='images/sj1000.png' width='150'/></td><td><img src='images/mia2000.png' width='150'/></td></tr></table>";
+	
+	if(!mySel.options[0].selected){
+
+		//document.getElementById('selectmap').disabled = false;
+		//document.getElementById('selectmap').style.color = 'Black';
+		if (document.getElementById('tasklist').selectedIndex!=0){
+		document.getElementById('submit').disabled = false;
+		document.getElementById('submit').style.color = 'Black';}
+	if(mySel.options[1].selected){
+		document.getElementById('map-info').innerHTML=atlinfo;
+		document.getElementById('data-info').innerHTML=atldata;
+	}
+	if(mySel.options[2].selected){
+		document.getElementById('map-info').innerHTML=sjinfo;
+		document.getElementById('data-info').innerHTML=sjdata;
+	}
+	if(mySel.options[3].selected){
+		document.getElementById('map-info').innerHTML=miainfo;
+		document.getElementById('data-info').innerHTML=miadata;
+	}
+	}else {
+		document.getElementById('map-info').innerHTML=mapinfo;
+		document.getElementById('data-info').innerHTML=datainfo;
+		
+		//document.getElementById('selectmap').disabled = true;
+		//document.getElementById('selectmap').style.color = 'Gray';
+		
+		document.getElementById('submit').disabled = true;
+		document.getElementById('submit').style.color = 'Gray';
+		}
+	
+				
+	}
+	function show_eps(mySel){
+		var w = mySel.selectedIndex;
+		if ((w!=0)&&(document.getElementById('datalist').selectedIndex!=0)){
+		document.getElementById('submit').disabled = false;
+		document.getElementById('submit').style.color = 'Black';}
+		else {
+		document.getElementById('submit').disabled = true;
+		document.getElementById('submit').style.color = 'Gray';
+		}
+		if (w==3){
+		document.getElementById('assigneps').style.display = 'block';}
+		else {
+		document.getElementById('assigneps').style.display = 'none';}
+
+	}
+	//-->
+	</SCRIPT>
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+
+<div class="heading" style="margin-top: 20px"> 
+<h1 ><a href="index.html"><span style="color:#EE760D">NEAT</span></a></h1>
+<h1 align="center"> <font face="Comic Sans MS" color="darkgreen">road <span style="color:#EE760D">NE</span>twork <span style="color:#EE760D">A</span>ware <span style="color:#EE760D">T</span>rajectory clustering</font></h1>
+<!--h2>road NEtwork Aware Trajectory clustering</h2-->
+</div>
+
+<!--div class="ad">
+<!--img src="ads.jpg" alt="ad" /--> <!-- Change this line (image) with Adsense adlink unit -->
+<!--/div-->
+
+<div style="clear: both;"> </div>
+</div>
+
+<div id="contentwrap"> 
+<a href="https://github.com/binhmop/neat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+
+<div id="content">
+
+<h2>Demo</h2>
+<p>NEAT allows users to run any of its three versions:
+<ul>
+<li>base-NEAT: performs phase 1 and produces base clusters</li>
+<li>flow-NEAT: performs phase 1 & 2 and produces flow clusters</li>
+<li>opt-NEAT: performs all three phases</li>
+</ul>
+</p>
+<table border="0" width="100%">
+<tr><td align="left" style="border:0.5px   lightgray   solid; padding:5px;">
+<div style="float: right; padding: 30px 10px 10px 10px;"><img src="images/neat.jpg" alt="image" width="160px"/></div>
+<p>
+<div style="margin-bottom: 30px"> 
+<b>Choose a dataset</b><br>
+
+<FORM NAME="NeatInput" id="NeatInput" action="JnlpGen" method="POST" target="_blank">
+
+<SELECT NAME="datalist" id="datalist" onchange="show_map(this)">
+<OPTION VALUE="">Choose one...
+<OPTION VALUE="atl-500-3.txt">ATLANTA Road Network
+<OPTION VALUE="sanjose-1000-3.txt">SAN JOSE Road Network
+<OPTION VALUE="mia-2000-4.txt">MIAMI Road Network
+<!--<OPTION VALUE="traclus-atl-500-3.txt">TRACLUS Result-->
+</SELECT>
+<!--INPUT id="selectmap" TYPE=button VALUE="Show Map Info" disabled="disabled"-->
+</div> 	
+
+<div style="margin-bottom: 30px"> 
+<b>Choose a NEAT task</b><br>
+<SELECT NAME="tasklist" id="tasklist" onchange="show_eps(this)">
+<OPTION VALUE="">Choose one...
+<OPTION VALUE="1">base-NEAT
+<OPTION VALUE="2">flow-NEAT
+<OPTION VALUE="3">opt-NEAT
+<!--OPTION VALUE="4">TraClus-->
+</SELECT>
+</div>
+<div id="assigneps" style="display: none">
+    <b>Distance threshold (m)</b><br>
+        <input name="optNEAT_eps" type="text" value="2000.0" id="optNEAT_eps" />
+</div>
+</br>
+<INPUT id="submit" TYPE=SUBMIT VALUE="Make it NEAT!" disabled="disabled" />
+</FORM>
+
+</p>
+</td></tr>
+
+
+
+	
+	<tr><td valign="top" align="left"  style="border:0.5px   lightgray   solid; padding:5px; ">
+		<b>Map information:</b><br/>
+		<div id="map-info"><table border='1'><tr><th>Regions</th><th>Total length</th><th># Segments</th><th># Junctions</th><th>Avg. segment length</th><th>Junction degrees</th></tr><tr><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr></table>
+		</div>
+	</td></tr>
+	<tr><td valign="top" align="left"  style="border:0.5px   lightgray   solid; padding:5px; ">
+		<b>Dataset information:</b><br/>
+		<div id="data-info"><table><tr><td><img src='images/atl.jpg' width='140'/></td><td><img src='images/sj.png' width='150'/></td><td><img src='images/mia.png' width='150'/></td></tr></table>
+		 </div>
+	</td></tr>
+
+</table>
+
+</div>
+
+<div id="sidebar">
+<h3>Menu Navigation</h3>
+<ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="demo.html">Demo</a></li>
+</ul>
+
+<h3>Useful Resources</h3>
+<ul>
+<li><a href="http://code.google.com/p/gt-mobisim/">GTMobisim</a></li>
+<li><a href="http://edc2.usgs.gov/geodata/index.php">svg maps</a></li>
+<li><a href="http://www.census.gov/geo/www/tiger/">shp maps</a></li>
+</ul>
+
+<h3>News!</h3>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/6589570/">NEAT journal version</a> appears in <a href="https://www.computer.org/web/tmc">IEEE Transactions on Mobile Computing (TMC)</a></li>
+</ul>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/6257987/">NEAT paper</a> appears at <a href="http://icdcs-2012.org/">ICDCS2012</a></li>
+</ul>
+
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="bottom"> </div>
+
+<div id="footer">
+<p>&copy; Copyright 2013 <a href="http://www.cc.gatech.edu/projects/disl">DiSL</a> | Template by <a href="http://www.minimalistic-design.com">Free Web Templates</a></p>
+</div>
+
+</div>
+
+</body>
+</html>

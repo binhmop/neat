@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+<title>Road Network Aware Trajectory Clustering</title>
+</head>
+<body>
+
+<div id="wrap">
+
+<div id="header">
+
+<div class="heading" style="margin-top: 20px"> 
+<h1><a href="index.html"><span style="color:#FF00AA">NEAT</span></a></h1>
+<h1 align="center" font-size='18pt'> <font face="Comic Sans MS" color="darkgreen">road <span style="color:#FF00AA">NE</span>twork <span style="color:#FF00AA">A</span>ware <span style="color:#FF00AA">T</span>rajectory clustering</font></h1>
+<!--h2>road NEtwork Aware Trajectory clustering</h2-->
+</div>
+
+<!--div class="ad">
+<!--img src="ads.jpg" alt="ad" /--> <!-- Change this line (image) with Adsense adlink unit -->
+<!--/div-->
+
+<div style="clear: both;"> </div>
+</div>
+
+<div id="contentwrap"> 
+<a href="https://github.com/binhmop/neat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+<div id="content">
+
+<h2>Overview</h2>
+
+<div style="float: right; padding: 30px 10px 10px 10px;"><img src="images/neat.jpg" alt="image" width="160px"/></div>
+
+<p><b>NEAT</b> is a clustering framework including road network aware algorithms for clustering trajectories of mobile objects traveling in road networks (MO trajectories).</p>
+
+<p>To deliver MO trajectory clustering results of high quality, NEAT takes into account the characteristics of both the underlying road networks and MO trajectories:
+<ul>
+	<li>Road network constraints: road segments, road intersections, speed limit</li>
+	<li>Traffic stream semantics: flow, density, speed</li>
+	<li>Road network proximity: shortest path distance</li>
+</ul>	
+</p>
+
+<h2>How NEAT works?</h2>
+
+<div style="float: right; padding: 10px;"></div>
+
+<p>NEAT clusters MO trajectories in a comprehensive three phase road network aware framework.
+<ul>
+	<li>Phase 1: Base cluster formation - Partitioning each trajectory into trajectory fragments(t-fragments, then grouping t-fragments which belong to the same road segment are grouped into a <i>base cluster</i>.</li>
+	<li>Phase 2: Flow cluster formation (flow based clustering) - Merging base clusters are into <i>flow clusters</i> considering their density and continuity.</li>
+	<li>Phase 3: Flow cluster refinement - Exploiting opportunities to further merge flow clusters which are close in terms of road network proximity to deliver more compact and interesting results.</li>
+</ul>
+</p>
+
+<h2>Fast and effective</h2>
+<p>NEAT reduces data space significantly by using trajectory fragment and base cluster as building blocks instead of points and line segments.
+There is no distance computation required in its first two phases. In phase 3, it uses Euclidean Lower Bound to filter out unnecessary shortest path computation. Thus NEAT runs very fast. It is 3 orders of magnitude faster than traditional density based clustering approach.
+See our <a href="neat.pdf">NEAT paper</a> for more details.</p>
+<p>A simple example:</p>
+
+<p><img src="images/3phases.png" alt="3phases" width="430px"/></p>
+
+</div>
+
+<div id="sidebar">
+<h3>Menu Navigation</h3>
+<ul>
+<li><a href="index.html">Overview</a></li>
+<li><a href="demo.html">Demo</a></li>
+</ul>
+
+<h3>Useful Resources</h3>
+<ul>
+<li><a href="http://code.google.com/p/gt-mobisim/">GTMobisim</a></li>
+<li><a href="http://edc2.usgs.gov/geodata/index.php">svg maps</a></li>
+<li><a href="http://www.census.gov/geo/www/tiger/">shp maps</a></li>
+</ul>
+
+<h3>News!</h3>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/6589570/">NEAT journal version</a> appears in <a href="https://www.computer.org/web/tmc">IEEE Transactions on Mobile Computing (TMC)</a></li>
+</ul>
+<ul>
+<li><a href="http://ieeexplore.ieee.org/document/6257987/">NEAT paper</a> appears at <a href="http://icdcs-2012.org/">ICDCS2012</a></li>
+</ul>
+
+</div>
+
+<div style="clear: both;"> </div>
+
+</div>
+
+<div id="bottom"> </div>
+
+<div id="footer">
+<p>&copy; Copyright 2013 <a href="http://www.cc.gatech.edu/projects/disl">DiSL</a> | Template by <a href="http://www.minimalistic-design.com">Free Web Templates</a></p>
+</div>
+
+</div>
+
+</body>
+</html>
